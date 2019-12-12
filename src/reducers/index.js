@@ -21,21 +21,31 @@ export const initialState = {
 
 export const featureReducer = (state = initialState, action) => {
     switch(action.type){
+        
 
-        //1) remove an object in additionalFeatures because we don't want our smart customer to click on it again, 
-        //2) put it in car.features
-        //3) and update car.price
+        //what we want to do here
+        //1) REMOVE an object in additionalFeatures because we don't want our smart customer to click on it again, 
+        //2) ADD the object to car.features
+        //3) and UPDATE car.price (+)
         case ADD_FEATURE:
             return {
                 ...state, //just do it
                 car: {
                     ...state.car, //saving name and image
                     price: state.car.price + action.payload.price, //when we click, we get action and this is where we put that ACTION.PAYLOAD
-                    features: [...state.car.features, action.payload] //adding the whole object
+                    features: [...state.car.features, action.payload] //adding the whole object into the array
                 },
-                additionalFeatures: state.additionalFeatures.filter(el => el.id !== action.payload.id) //!== create a new array, DO return anything that doesn't match id
+                additionalFeatures: state.additionalFeatures.filter(el => el.id !== action.payload.id) 
+                //create a new array, only RETURN anything that does NOT match the id
             }
-        //default always last
+
+
+
+
+            //what we want to do here
+        //1) ADD an object back in additionalFeatures
+        //2) REMOVE the object from car.features
+        //3) UPDATE car.price (-)
 
         case REMOVE_FEATURE:
             return{
@@ -48,6 +58,7 @@ export const featureReducer = (state = initialState, action) => {
                 additionalFeatures: [...state.additionalFeatures, action.payload]
             }
 
+        //default is always the last
         default:
             return state
     }

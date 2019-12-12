@@ -6,6 +6,9 @@ import 'bulma/css/bulma.css';
 import './styles.scss';
 
 //redux
+//usually redux is used in a huge app, not in a small app like this
+//but it's good to learn anyway
+
 import {Provider} from 'react-redux';
 import {createStore} from 'redux';
 import {featureReducer} from './reducers'

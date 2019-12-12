@@ -26,8 +26,10 @@ const App = (props) => {
 };
 
 //mapStateToProps is a function that takes in state
-//it only returns the state we ask for in return
-//usually redux is used in a huge app, not in a small app like this
+//it only returns the state we ask for in return so 
+
+
+
 
 const mapStateToProps = state => {
   return {
